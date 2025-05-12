@@ -32,10 +32,9 @@ public class CartFrame extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        RemoveBtn = new javax.swing.JButton();
+        CheckOutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -46,7 +45,7 @@ public class CartFrame extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\eiron\\Downloads\\home (1) (3).png")); // NOI18N
         jLabel6.setText("jLabel6");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 60, 70));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 60, 70));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/1920x1080-lemon-yellow-solid-color-background.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -65,27 +64,24 @@ public class CartFrame extends javax.swing.JPanel {
         jRadioButton1.setText("jRadioButton1");
         jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        jRadioButton3.setText("jRadioButton3");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
-
         jRadioButton4.setText("jRadioButton4");
-        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        jButton1.setText("Remove");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RemoveBtn.setText("Remove");
+        RemoveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RemoveBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+        jPanel1.add(RemoveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
-        jButton2.setText("Check Out");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CheckOutBtn.setText("Check Out");
+        CheckOutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CheckOutBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
+        jPanel1.add(CheckOutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
 
         jLabel1.setText("Cart");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
@@ -101,13 +97,13 @@ public class CartFrame extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RemoveBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CheckOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CheckOutBtnActionPerformed
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
             javax.swing.JFrame frame = new javax.swing.JFrame("Nike Product Page");
@@ -122,8 +118,8 @@ public class CartFrame extends javax.swing.JPanel {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton CheckOutBtn;
+    private javax.swing.JButton RemoveBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
@@ -131,7 +127,6 @@ public class CartFrame extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
