@@ -46,4 +46,31 @@ public class BabyAlien extends javax.swing.JFrame {
             Logger.getLogger(BabyAlien.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public String[] getFirstProductDetails() {
+        String[] productData = new String[3]; // [Shoename, Price, Stock]
+        try {
+            String host = "jdbc:derby://localhost:1527/Database";
+            String user = "Renzyx28";
+            String pass = "Renzyx28";
+
+            Connection con = DriverManager.getConnection(host, user, pass);
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM CART FETCH FIRST ROW ONLY";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                productData[0] = rs.getString("SHOENAME");
+                productData[1] = rs.getString("PRICE");
+                productData[2] = rs.getString("STOCK");
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productData;
+    }
+
 }
