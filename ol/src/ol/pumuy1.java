@@ -28,7 +28,6 @@ public class pumuy1 extends javax.swing.JPanel {
 
         logo = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -38,6 +37,7 @@ public class pumuy1 extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -53,10 +53,6 @@ public class pumuy1 extends javax.swing.JPanel {
             }
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, 30));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\eiron\\Downloads\\home (1) (3).png")); // NOI18N
-        jLabel6.setText("jLabel6");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 60, 70));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("Nike Air Force 1 Low");
@@ -99,6 +95,9 @@ public class pumuy1 extends javax.swing.JPanel {
         jButton1.setOpaque(true);
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, -1, 30));
 
+        jButton3.setText("Home");
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, 30));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/1920x1080-lemon-yellow-solid-color-background.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 520, 140));
@@ -129,13 +128,13 @@ public class pumuy1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

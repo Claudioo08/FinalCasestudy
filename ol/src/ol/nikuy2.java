@@ -4,18 +4,27 @@
  */
 package ol;
 
+import javax.swing.*;
+import javax.swing.JButton;
 /**
  *
  * @author eiron
  */
 public class nikuy2 extends javax.swing.JPanel {
 
+private CartFrame cartFrame;    
+private BabyAlien db;
+
+    
+public nikuy2() {
+    initComponents();
+    updateProductDisplay1();
+    cartFrame = new CartFrame();
+}
     /**
      * Creates new form nikuy
      */
-    public nikuy2() {
-        initComponents();
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,17 +37,18 @@ public class nikuy2 extends javax.swing.JPanel {
 
         logo = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        pro = new javax.swing.JLabel();
+        pn = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
+        size2 = new javax.swing.JComboBox<>();
+        spin = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        st = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,35 +64,31 @@ public class nikuy2 extends javax.swing.JPanel {
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\eiron\\Downloads\\home (1) (3).png")); // NOI18N
-        jLabel6.setText("jLabel6");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 60, 70));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/NIKE+DUNK+LOW+RETRO (1) (1).png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 190, 230));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel2.setText("Nike Dunk Low Retro");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, -1));
+        pro.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        pro.setText("Nike Dunk Low Retro");
+        add(pro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jLabel3.setText("₱ 5,890");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 60, -1));
+        pn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        pn.setText("₱ 5,890");
+        add(pn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 60, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel4.setText("Size");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an option", "US Men's 7", "US Women's 8.5", "US Men's 8", "US Women's 9.5", "US Men's 9", "US Women's 10.5" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        size2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an option", "7", "8", "9" }));
+        size2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                size2ActionPerformed(evt);
             }
         });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
+        add(size2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
 
-        jSpinner1.setValue(1);
-        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 70, -1));
+        spin.setValue(1);
+        add(spin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 70, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 215, 0));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -90,31 +96,91 @@ public class nikuy2 extends javax.swing.JPanel {
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setFocusPainted(false);
         jButton1.setOpaque(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, -1, 30));
 
-        jLabel5.setText("Stock's left:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
+        st.setText("Stock's left:");
+        add(st, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel7.setText("Quantity");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, -1, -1));
 
+        jButton3.setText("Home");
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, 30));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/1920x1080-lemon-yellow-solid-color-background.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 520, 140));
 
+        jLabel6.setText("0");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, -1, -1));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/656565.png (1).png"))); // NOI18N
         jLabel9.setText("jLabel9");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -120, 780, 1170));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-250, -120, 780, 1170));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void size2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_size2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_size2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      String selectedSize = (String) size2.getSelectedItem();
+    int quantity = (Integer) spin.getValue();
+
+    String stockText = st.getText().replaceAll("[^0-9]", "");
+    int availableStock = Integer.parseInt(stockText);
+
+    if ("Choose an option".equals(selectedSize)) {
+        JOptionPane.showMessageDialog(this, "Please select a size");
+        return;
+    }
+
+    if (quantity > availableStock) {
+        JOptionPane.showMessageDialog(this, "Not enough stock available");
+        return;
+    }
+
+    String price = pn.getText().replace("₱", "").trim();
+    String productName = pro.getText();
+
+    if (cartFrame != null) {
+        cartFrame.addItemToCart(productName, price, quantity, selectedSize);
+
+        // 🔁 Replace current panel with cartFrame
+        SwingUtilities.invokeLater(() -> {
+            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            topFrame.getContentPane().removeAll();
+            topFrame.getContentPane().add(cartFrame);
+            topFrame.revalidate();
+            topFrame.repaint();
+        });
+    }
+    
+    }                                            
+    public void updateProductDisplay1() {
+    BabyAlien db = new BabyAlien();
+    String[] productDetails = db.getSecondProductDetails();  
+
+    if (productDetails != null && productDetails.length == 3) {
+        pro.setText(productDetails[0]);                   // SHOENAME
+        pn.setText("₱" + productDetails[1]);       // PRICE
+        st.setText("Stock: " + productDetails[2]);     // STOCK
+    } else {
+        pro.setText("No product found");
+        pn.setText("₱0.00");
+        st.setText("Stock: 0");
+    }
+    }   
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
             javax.swing.JFrame frame = new javax.swing.JFrame("Nike Product Page");
@@ -124,22 +190,29 @@ public class nikuy2 extends javax.swing.JPanel {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
     });
-}
+    }
+    public void setProductDetails(String name, String price, String stock) {
+    pro.setText(name);
+    pn.setText(price);
+    st.setText(stock);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel pn;
+    private javax.swing.JLabel pro;
+    private javax.swing.JComboBox<String> size2;
+    private javax.swing.JSpinner spin;
+    private javax.swing.JLabel st;
     // End of variables declaration//GEN-END:variables
 }

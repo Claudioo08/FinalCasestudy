@@ -3,6 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ol;
+import javax.swing.JRadioButton;
+import javax.swing.BoxLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 /**
  *
@@ -10,13 +22,20 @@ package ol;
  */
 public class CartFrame extends javax.swing.JPanel {
 
+
+private final ArrayList<JRadioButton> cartItems = new ArrayList<>();
+private final HashMap<JRadioButton, String> itemProductNames = new HashMap<>();
+private final HashMap<JRadioButton, Integer> itemQuantities = new HashMap<>();
+private final ButtonGroup buttonGroup = new ButtonGroup();
+
     /**
      * Creates new form nikuy
      */
+    
     public CartFrame() {
         initComponents();
+        jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS)); 
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,15 +46,11 @@ public class CartFrame extends javax.swing.JPanel {
     private void initComponents() {
 
         logo = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         RemoveBtn = new javax.swing.JButton();
         CheckOutBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,29 +58,15 @@ public class CartFrame extends javax.swing.JPanel {
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/robix (3).png"))); // NOI18N
         add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 99, 94));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\eiron\\Downloads\\home (1) (3).png")); // NOI18N
-        jLabel6.setText("jLabel6");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 60, 70));
+        jButton3.setText("Home");
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/1920x1080-lemon-yellow-solid-color-background.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 520, 140));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jRadioButton2.setText("jRadioButton2");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 200, 40));
-
-        jRadioButton1.setText("jRadioButton1");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
-        jRadioButton4.setText("jRadioButton4");
-        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 370, 440));
 
         RemoveBtn.setText("Remove");
         RemoveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +74,7 @@ public class CartFrame extends javax.swing.JPanel {
                 RemoveBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(RemoveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+        add(RemoveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 610, -1, -1));
 
         CheckOutBtn.setText("Check Out");
         CheckOutBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -81,29 +82,72 @@ public class CartFrame extends javax.swing.JPanel {
                 CheckOutBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(CheckOutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, -1, -1));
-
-        jLabel1.setText("Cart");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 370, 440));
+        add(CheckOutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 610, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/656565.png (1).png"))); // NOI18N
         jLabel9.setText("jLabel9");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-250, -100, 780, 1170));
     }// </editor-fold>//GEN-END:initComponents
+public void addItemToCart(String productName, String price, int quantity, String size) {
+    String itemDetails = productName + " | " + price + " | Qty: " + quantity + " | Size: " + size;
+    JRadioButton itemButton = new JRadioButton(itemDetails);
+    cartItems.add(itemButton);
+    itemProductNames.put(itemButton, productName);
+    itemQuantities.put(itemButton, quantity);
+    buttonGroup.add(itemButton);  // Needed for single-selection and remove
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    jPanel1.add(itemButton);
+    jPanel1.revalidate();
+    jPanel1.repaint();
+}
 
-    private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveBtnActionPerformed
 
     private void CheckOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutBtnActionPerformed
         // TODO add your handling code here:
+    
+        // TODO add your handling code here:
+            for (JRadioButton item : cartItems) {
+        String productName = itemProductNames.get(item);
+        int quantity = itemQuantities.get(item);
+
+        // Reduce stock using Manage_Products
+        Manage_Products.reduceStock(productName, quantity);
+    }
+
+    // Show confirmation
+    javax.swing.JOptionPane.showMessageDialog(this, "Checkout complete.");
+
+    // Clear cart visually and internally
+    jPanel1.removeAll();
+    cartItems.clear();
+    itemProductNames.clear();
+    itemQuantities.clear();
+    buttonGroup.clearSelection();
+    jPanel1.revalidate();
+    jPanel1.repaint();
+    //GEN-LAST:event_CheckOutBtnActionPerformed
     }//GEN-LAST:event_CheckOutBtnActionPerformed
+
+    private void RemoveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBtnActionPerformed
+        // TODO add your handling code here:
+            JRadioButton toRemove = null;
+    for (JRadioButton item : cartItems) {
+        if (item.isSelected()) {
+            toRemove = item;
+            break;
+        }
+    }
+
+    if (toRemove != null) {
+        jPanel1.remove(toRemove);
+        cartItems.remove(toRemove);
+        itemProductNames.remove(toRemove);
+        itemQuantities.remove(toRemove);
+        buttonGroup.remove(toRemove);
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }
+    }//GEN-LAST:event_RemoveBtnActionPerformed
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
             javax.swing.JFrame frame = new javax.swing.JFrame("Nike Product Page");
@@ -120,14 +164,10 @@ public class CartFrame extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckOutBtn;
     private javax.swing.JButton RemoveBtn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }

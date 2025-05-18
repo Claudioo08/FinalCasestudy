@@ -4,18 +4,23 @@
  */
 package ol;
 
+import javax.swing.*;
+import javax.swing.JButton;
 /**
  *
  * @author eiron
  */
 public class nikuy3 extends javax.swing.JPanel {
 
-    /**
-     * Creates new form nikuy
-     */
-    public nikuy3() {
-        initComponents();
-    }
+private CartFrame cartFrame;    
+private BabyAlien db;
+
+    
+public nikuy3() {
+    initComponents();
+    updateProductDisplay2();
+    cartFrame = new CartFrame();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,17 +33,18 @@ public class nikuy3 extends javax.swing.JPanel {
 
         logo = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        je = new javax.swing.JLabel();
+        pr = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
+        sz = new javax.swing.JComboBox<>();
+        er = new javax.swing.JSpinner();
+        ok = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,38 +60,34 @@ public class nikuy3 extends javax.swing.JPanel {
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\eiron\\Downloads\\home (1) (3).png")); // NOI18N
-        jLabel6.setText("jLabel6");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 60, 70));
+        je.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        je.setText("Air Jordan 4 Retro 'Aluminum' ");
+        add(je, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel2.setText("Air Jordan 4 Retro 'Aluminum' ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jLabel3.setText("₱ 12.000");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 60, -1));
+        pr.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        pr.setText("₱ 12.000");
+        add(pr, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 60, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel4.setText("Size");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\eiron\\Downloads\\women-s-air-jordan-4-aluminum-hv0823-100-release-date (2).jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/women-s-air-jordan-4-aluminum-hv0823-100-release-date (1).png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 180, 230));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an option", "US Men's 7", "US Women's 8.5", "US Men's 8", "US Women's 9.5", "US Men's 9", "US Women's 10.5" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        sz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an option", "7", "8", "9" }));
+        sz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                szActionPerformed(evt);
             }
         });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
+        add(sz, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
 
-        jSpinner1.setValue(1);
-        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 70, -1));
+        er.setValue(1);
+        add(er, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 70, -1));
 
-        jLabel5.setText("Stock's left:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
+        ok.setText("Stock's left:");
+        add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel7.setText("Quantity");
@@ -97,11 +99,22 @@ public class nikuy3 extends javax.swing.JPanel {
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.setFocusPainted(false);
         jButton1.setOpaque(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, -1, 30));
+
+        jButton3.setText("Home");
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/1920x1080-lemon-yellow-solid-color-background.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 520, 140));
+
+        jLabel2.setText("0");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ol/656565.png (1).png"))); // NOI18N
         jLabel9.setText("jLabel9");
@@ -112,9 +125,58 @@ public class nikuy3 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void szActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_szActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_szActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         String selectedSize = (String) sz.getSelectedItem();
+    int quantity = (Integer) er.getValue();
+
+    String stockText = ok.getText().replaceAll("[^0-9]", "");
+    int availableStock = Integer.parseInt(stockText);
+
+    if ("Choose an option".equals(selectedSize)) {
+        JOptionPane.showMessageDialog(this, "Please select a size");
+        return;
+    }
+
+    if (quantity > availableStock) {
+        JOptionPane.showMessageDialog(this, "Not enough stock available");
+        return;
+    }
+
+    String price = pr.getText().replace("₱", "").trim();
+    String productName = pro.getText();
+
+    if (cartFrame != null) {
+        cartFrame.addItemToCart(productName, price, quantity, selectedSize);
+
+        // 🔁 Replace current panel with cartFrame
+        SwingUtilities.invokeLater(() -> {
+            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            topFrame.getContentPane().removeAll();
+            topFrame.getContentPane().add(cartFrame);
+            topFrame.revalidate();
+            topFrame.repaint();
+        });
+    }
+    
+    }                                            
+    public void updateProductDisplay2() {
+    BabyAlien db = new BabyAlien();
+    String[] productDetails = db.getFirstProductDetails();  
+
+    if (productDetails != null && productDetails.length == 3) {
+        je.setText(productDetails[0]);                   // SHOENAME
+        pr.setText("₱" + productDetails[1]);       // PRICE
+        ok.setText("Stock: " + productDetails[2]);     // STOCK
+    } else {
+        je.setText("No product found");
+        pr.setText("₱0.00");
+        ok.setText("Stock: 0");
+    }
+    }   
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
             javax.swing.JFrame frame = new javax.swing.JFrame("Nike Product Page");
@@ -124,22 +186,30 @@ public class nikuy3 extends javax.swing.JPanel {
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
     });
-}
+    }
+    public void setProductDetails(String name, String price, String stock) {
+    je.setText(name);
+    pr.setText(price);
+    ok.setText(stock);
+    }                                        
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner er;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel je;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel ok;
+    private javax.swing.JLabel pr;
+    private javax.swing.JComboBox<String> sz;
     // End of variables declaration//GEN-END:variables
-}
+
