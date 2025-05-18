@@ -1,13 +1,27 @@
+Sun May 18 20:48:10 PST 2025 : Apache Derby Network Server - 10.17.1.0 - (1913217) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Tue May 13 20:13:35 PST 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-0196-c990-89e9-00000d3d72f8 
-on database directory C:\Users\USER\Documents\NetBeansProjects\FinalCasestudy-master\FinalCasestudy\ol\Database with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@11a4022a 
+Sun May 18 20:48:12 PST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-0196-e370-018a-0000590ec9ea 
+on database directory C:\Users\USER\Documents\New Folder\Database with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
 Loaded from file:/C:/Users/USER/Downloads/db-derby-10.17.1.0-bin/db-derby-10.17.1.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=24.0.1+9-30
-user.dir=C:\Users\USER\Documents\NetBeansProjects\FinalCasestudy-master\FinalCasestudy\ol
+java.runtime.version=23.0.2+7-58
+user.dir=C:\Users\USER\Downloads\db-derby-10.17.1.0-bin\db-derby-10.17.1.0-bin
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0
-derby.system.home=null
+derby.system.home=C:\Users\USER\Documents\New Folder
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun May 18 20:48:14 PST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a094c023-0196-e370-018a-0000590ec9ea 
+on database directory C:\Users\USER\Documents\New Folder\Database_Login with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e 
+Loaded from file:/C:/Users/USER/Downloads/db-derby-10.17.1.0-bin/db-derby-10.17.1.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=23.0.2+7-58
+user.dir=C:\Users\USER\Downloads\db-derby-10.17.1.0-bin\db-derby-10.17.1.0-bin
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\USER\Documents\New Folder
 Database Class Loader started - derby.database.classpath=''
